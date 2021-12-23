@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+/* 
+    #ff5473 (secundary color)
+
+    $value: $size / 16; (volta em rem)
+*/
+*{
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-weight: 400;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    background: #262835;
+}
+
+main {
+    width: 37.5rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+input{
+    outline: none;
+    font-weight: 100;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
