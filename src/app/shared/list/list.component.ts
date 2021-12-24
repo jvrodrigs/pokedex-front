@@ -8,6 +8,7 @@ import { PokeApiService } from 'src/app/service/poke-api.service';
 })
 export class ListComponent implements OnInit {
 
+  private getOldPokemons: any;
   public getAllPokemons: any;
 
   constructor(
@@ -17,10 +18,19 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.service.listAllPokemons.subscribe(
       res => {
-        this.getAllPokemons = res.results;
-        console.log(this.getAllPokemons);
+        this.getOldPokemons = res.results;
+        this.getAllPokemons = this.getOldPokemons;
       }
     );
+  }
+
+  public search(val: String){
+    //Filtrar a partir da versão "antiga" e quando for filtrando vai voltando ao normal.
+    const filter = this.getOldPokemons.filter((res: any) => {
+      return !res.name.indexOf(val.toLowerCase());
+    });
+
+    this.getAllPokemons = filter;
   }
 
 }

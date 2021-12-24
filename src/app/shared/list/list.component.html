@@ -1,7 +1,10 @@
+
+<app-search (emmitSearch)="search($event)"></app-search>
+
 <div class="list-all">
     <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
         <!-- 1h50 -->
-        <a href="" class="pokemon" *ngIf= "pokemon.infos">
+        <a class="pokemon" [routerLink]="['details', pokemon.infos.id]" *ngIf="pokemon.infos">
             <section class="pokemon-info">
                 <h2>{{pokemon.name}}</h2>
                 <ul>
