@@ -1,1 +1,37 @@
-<p>details works!</p>
+<app-header></app-header>
+
+<main>
+    <ng-template [ngIf] = "isLoading">
+        <section class="names">
+            <h1 class="slideInLeft">{{pokemon[0].name}}</h1>
+            <h2 class="slideInRight">{{pokemon[1].names[0].name}}</h2>
+        </section>
+    
+        <section class="info">
+            <img [src]="pokemon[0].sprites.other.dream_world.front_default" [alt]="pokemon[0].name" class="slideInDown">
+    
+            <article class="info_statis fadeIn">
+                <section>
+                    <h3>Estatísticas</h3>
+                    <ol>
+                        <li *ngFor="let value of pokemon[0].stats">
+                            {{ value.stat.name }}
+            
+                          <strong>
+                            {{ value.base_stat }}
+                          </strong>
+                        </li>
+                      </ol>
+                </section>
+    
+                <a class="btn" [routerLink]="['']">
+                    Voltar
+                </a>
+            </article>
+        </section>
+    </ng-template>
+
+   <ng-template [ngIf]="isError">
+    <img src="assets/error-404.jpg" alt="Página não encontrada!" width="100%">
+   </ng-template>
+</main>
